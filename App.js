@@ -7,16 +7,19 @@ import { composeWithDevTools } from "redux-devtools-extension";
 
 import productsReducer from "./store/reducers/products";
 import cartReducer from "./store/reducers/cart";
+import ordersReducer from "./store/reducers/orders";
+
 import ShopNavigator from "./navigation/shopNavigator";
 
 const rootReducer = combineReducers({
   products: productsReducer,
-  cart: cartReducer
+  cart: cartReducer,
+  orders: ordersReducer
 });
 
 //TODO remove composeWithDevTools before deployment!!!!
-// const store = createStore(rootReducer, composeWithDevTools());
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, composeWithDevTools());
+// const store = createStore(rootReducer);
 
 const fetchFonts = () => {
   return Font.loadAsync({
